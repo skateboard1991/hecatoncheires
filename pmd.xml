@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd version="5.5.2" timestamp="2019-06-13T10:59:23.841">
+<file name="/Users/mac/AndroidStudioProjects/LintPluginTest/app/src/main/java/com/skateboard/lintplugintest/TestActivity.java">
+<violation beginline="8" endline="15" begincolumn="8" endcolumn="1" rule="ClassMustHaveAuthorRule" ruleset="AlibabaJavaComments" package="com.skateboard.lintplugintest" class="TestActivity" priority="3">
+【TestActivity】缺少包含@author的注释信息
+</violation>
+</file>
+<file name="/Users/mac/AndroidStudioProjects/LintPluginTest/app/src/main/java/com/skateboard/test/TestActivity.java">
+<violation beginline="3" endline="4" begincolumn="8" endcolumn="1" rule="ClassMustHaveAuthorRule" ruleset="AlibabaJavaComments" package="com.skateboard.test" class="TestActivity" priority="3">
+【TestActivity】缺少包含@author的注释信息
+</violation>
+</file>
+</pmd>

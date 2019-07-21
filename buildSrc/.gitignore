@@ -1,0 +1,47 @@
+/.idea
+/.gradle
+/local.properties
+/build
+/app/build
+/module
+
+*.iml
+
+# Crashlytics configuations
+com_crashlytics_export_strings.xml
+crashlytics-build.properties
+
+# Eclipse project files
+.classpath
+.project
+
+# OSX files
+.DS_Store
+.DS_Store?
+
+# Windows thumbnail db
+ehthumbs.db
+Thumbs.db
+
+# OS-specific files
+._*
+.Spotlight-V100
+.Trashes
+
+# Log Files
+*.log
+
+# react-native
+/react-native
+/app/src/main/assets/index.android.bundle
+/app/src/main/res/drawable*/node_modules*.png
+
+# freeline
+
+/freeline/freeline_core/*.pyc
+
+module
+java_pid1673.hprof
+login-lib-new/build
+qc-lib/build/
+healthcard-lib-new/build/
