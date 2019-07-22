@@ -22,6 +22,7 @@ buildscript {
     }
 }
 
+
 apply plugin: 'kotlin'
 
 apply plugin: "pmd"
@@ -30,9 +31,28 @@ apply plugin: "java-gradle-plugin"
 
 apply plugin: "com.gradle.plugin-publish"
 
+version = '1.0.0'
+group = "com.skateboard.hecatoncheires"
 
 sourceCompatibility = "1.8"
 targetCompatibility = "1.8"
+
+pluginBundle {
+    website = 'https://github.com/skateboard1991/hecatoncheires'
+    vcsUrl = 'https://github.com/skateboard1991/hecatoncheires'
+    tags = ['pmd', 'lint', 'code analyze']
+}
+
+gradlePlugin {
+    plugins {
+        hecatoncheiresPlugin {
+            id = 'com.skateboard.hecatoncheires'
+            displayName = 'hecatoncheires'
+            description = '一款静态代码检测工具，包含阿里java规约检测和lint检测，可自定义配置规则，结合git在代码提交时进行增量检测'
+            implementationClass = 'com.skateboard.hecatoncheires.plugin.LintIncrementCheckPlugin'
+        }
+    }
+}
 
 
 repositories {

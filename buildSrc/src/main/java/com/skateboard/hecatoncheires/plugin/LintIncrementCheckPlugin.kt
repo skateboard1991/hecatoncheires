@@ -11,6 +11,7 @@ import com.android.build.gradle.internal.scope.GlobalScope
 import com.android.build.gradle.internal.scope.VariantScope
 import com.android.build.gradle.internal.variant.BaseVariantData
 import com.android.build.gradle.tasks.LintBaseTask
+import com.skateboard.hecatoncheires.Constants
 import com.skateboard.hecatoncheires.Constants.Companion.ALIRULESETS
 import com.skateboard.hecatoncheires.Constants.Companion.GOUP_NAME
 import com.skateboard.hecatoncheires.Constants.Companion.HECATONCHEIRESEXTENSION_NAME
@@ -26,6 +27,7 @@ import com.skateboard.hecatoncheires.task.IncrementLintPerVariantTask
 import com.skateboard.hecatoncheires.util.GitUtil
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.api.artifacts.Dependency
 import org.gradle.api.plugins.quality.Pmd
 import org.gradle.api.plugins.quality.PmdExtension
 import java.io.File
@@ -129,17 +131,18 @@ class LintIncrementCheckPlugin : Plugin<Project> {
 
     private fun addLintClassPath(project: Project) {
         project.gradle.rootProject.configurations
-        val classPathConfiguration =  project.gradle.rootProject.buildscript.configurations.getByName("classpath")
-        var version = "+"
+        val classPathConfiguration = project.gradle.rootProject.buildscript.configurations.getByName("classpath")
+        var hecatoncheiresDependency: Dependency? = null
         classPathConfiguration.dependencies.forEach {
-            if (it.name == "hecatoncheires") {
-                version = it.version ?: "+"
+            if (it.name.contains(Constants.HECATONCHEIRESEXTENSION_NAME)) {
+                hecatoncheiresDependency = it
+                return@forEach
             }
         }
         val lintConfiguration = project.configurations.getByName(LintBaseTask.LINT_CLASS_PATH)
         project.dependencies.add(
             lintConfiguration.name,
-            "com.skateboard:hecatoncheires:$version"
+            hecatoncheiresDependency
         )
     }
 

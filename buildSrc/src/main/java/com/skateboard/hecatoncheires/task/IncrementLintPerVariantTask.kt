@@ -7,6 +7,7 @@ import com.android.build.gradle.tasks.LintBaseTask
 import com.android.utils.StringHelper
 import com.skateboard.hecatoncheires.Constants.Companion.INCREMENT_LINT_PREFIX
 import com.skateboard.hecatoncheires.checktools.IncrementLintGradleExecution
+import com.skateboard.hecatoncheires.checktools.IncrementReflectiveLintRunner
 import com.skateboard.hecatoncheires.util.GitUtil
 import org.gradle.api.file.FileCollection
 import org.gradle.api.tasks.InputFiles
@@ -29,8 +30,14 @@ open class IncrementLintPerVariantTask: LintBaseTask() {
         runLint(LintPerVariantTaskDescriptor())
     }
 
-    override fun runLint(descriptor: LintBaseTaskDescriptor?) {
-        IncrementLintGradleExecution(descriptor).analyze()
+    override fun runLint(descriptor: LintBaseTaskDescriptor) {
+        val lintClassPath = lintClassPath
+        if (lintClassPath != null) {
+            IncrementReflectiveLintRunner().runLint(
+                project.gradle,
+                descriptor, lintClassPath.files
+            )
+        }
     }
 
     private inner class LintPerVariantTaskDescriptor : LintBaseTask.LintBaseTaskDescriptor() {
