@@ -11,14 +11,29 @@
 
 ```
 buildscript {
-  repositories {
-    maven {
-      url "https://plugins.gradle.org/m2/"
+    repositories {
+        google()
+        jcenter()
+        maven {
+            url "https://dl.bintray.com/wuhaoxuan1225/maven/"
+        }
     }
-  }
-  dependencies {
-    classpath "com.skateboard.hecatoncheires:hecatoncheires:1.0.0"
-  }
+    dependencies {
+        
+        classpath "com.skateboard:hecatoncheires:1.0.0"
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven {
+            url "https://dl.bintray.com/wuhaoxuan1225/maven/"
+        }
+    }
 }
 ```
 
@@ -37,8 +52,10 @@ hecatoncheires {
     preCompile=false //是否会编译文件，false时不会编译生成class文件，减少检测时间
 }
 ```
-
 ## 4.
+默认报告输出:阿里集团规约检测在在app/build/reports/pmd路径下，lint检测报告在app/build/reports下，报告输出路径可以通过lint和pmd的相关extension配置
+
+## 5.
 支持lint和pmd的相关extension，具体配置请参考相关文档
 
 [lint](http://google.github.io/android-gradle-dsl/current/com.android.build.gradle.internal.dsl.LintOptions.html#com.android.build.gradle.internal.dsl.LintOptions)
