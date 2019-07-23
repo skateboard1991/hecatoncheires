@@ -12,7 +12,7 @@ pmd{
 }
 
 hecatoncheires{
-    enable=false
+    enable=true
     preCompile=false
 }
 
