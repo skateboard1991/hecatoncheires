@@ -4,37 +4,17 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
-//apply plugin: 'hecatoncheires'
+apply plugin: 'hecatoncheires'
 
 
-//task pmdpluginA(type: Pmd) {
-//    ignoreFailures = false
-//    ruleSetFiles = files("rule/ali-comment.xml") //这里是自定义的规则
-//    ruleSets = []
-//
-//    source 'src'
-//    include '**/*.java'
-//    exclude '**/gen/**'
-//
-//    reports {
-//        xml.enabled = false
-//        html.enabled = true
-//        xml {
-//            "build/reports/pmd/pmd.xml"  //这里是报告产生的路径
-//        }
-//        html {
-//            "build/reports/pmd/pmd.html"  //这里是报告产生的路径
-//        }
-//    }
-//}
-//pmd{
-//    rulePriority=1
-//}
-//
-//hecatoncheires{
-//    enable=false
-//    preCompile=false
-//}
+pmd{
+    rulePriority=1
+}
+
+hecatoncheires{
+    enable=false
+    preCompile=false
+}
 
 android {
     compileSdkVersion 28

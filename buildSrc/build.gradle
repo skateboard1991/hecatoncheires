@@ -17,6 +17,7 @@ buildscript {
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "com.gradle.publish:plugin-publish-plugin:0.10.1"
+        classpath 'com.novoda:bintray-release:+'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -30,6 +31,8 @@ apply plugin: "pmd"
 apply plugin: "java-gradle-plugin"
 
 apply plugin: "com.gradle.plugin-publish"
+
+apply plugin: 'com.novoda.bintray-release'
 
 version = '1.0.0'
 group = "com.skateboard.hecatoncheires"
@@ -54,6 +57,15 @@ gradlePlugin {
     }
 }
 
+
+publish {
+    userOrg = 'wuhaoxuan1225'
+    groupId = 'com.skateboard'
+    artifactId = 'hecatoncheires'
+    publishVersion = '1.0.0'
+    desc = '一款静态代码检测工具，包含阿里java规约检测和lint检测，支持自定义pmd和lint配置，结合git在代码提交时进行增量检测 '
+    website = 'https://github.com/skateboard1991/hecatoncheires'
+}
 
 repositories {
     maven {
