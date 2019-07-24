@@ -1,7 +1,7 @@
 # 百臂巨人
 一款静态代码检测工具，包含阿里java规约检测和lint检测，支持自定义pmd和lint配置，结合git在代码提交时进行增量检测
 ![image](https://github.com/skateboard1991/hecatoncheires/blob/master/icon.jpeg)
-
+支持android build gradle版本为com.android.tools.build:gradle:3.1.3
 # 原理图
 ![image](https://github.com/skateboard1991/hecatoncheires/blob/master/flow.png)
 
