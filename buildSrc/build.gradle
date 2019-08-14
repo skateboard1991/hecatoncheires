@@ -62,7 +62,7 @@ publish {
     userOrg = 'wuhaoxuan1225'
     groupId = 'com.skateboard'
     artifactId = 'hecatoncheires'
-    publishVersion = '1.0.0'
+    publishVersion = '1.0.1'
     desc = '一款静态代码检测工具，包含阿里java规约检测和lint检测，支持自定义pmd和lint配置，结合git在代码提交时进行增量检测 '
     website = 'https://github.com/skateboard1991/hecatoncheires'
 }
