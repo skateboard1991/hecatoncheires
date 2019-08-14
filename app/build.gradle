@@ -35,7 +35,9 @@ android {
 
     lintOptions {
         // Turns off checks for the issue IDs you specify.
-        disable 'GradleDependency','OldTargetApi'
+        disable 'GradleDependency','OldTargetApi','NewApi'
+
+        warningsAsErrors true
 
         abortOnError false
 

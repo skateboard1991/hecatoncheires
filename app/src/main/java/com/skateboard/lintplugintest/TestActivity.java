@@ -11,6 +11,6 @@ public class TestActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Toast.makeText(this,"",2);
+        Toast.makeText(this,"",Toast.LENGTH_SHORT);
     }
 }

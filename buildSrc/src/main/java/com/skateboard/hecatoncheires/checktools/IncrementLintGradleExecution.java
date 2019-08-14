@@ -248,7 +248,7 @@ public class IncrementLintGradleExecution {
         Pair<List<Warning>, LintBaseline> warnings;
         try {
             warnings = client.run(registry);
-            if (warnings == null || warnings.getFirst().size() <= 0) {
+            if(!client.haveErrors()){
                 System.out.println("lint no issues found");
             }
         } catch (IOException e) {
